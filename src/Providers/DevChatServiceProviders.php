@@ -3,12 +3,19 @@
 namespace ResolutoDigital\DevChat\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ResolutoDigital\DevChat\Commands\DevChatCommand;
+use ResolutoDigital\DevChat\Core\{
+    DevChatAgent,
+    FileWriter,
+    HistoryLogger,
+    PromptRegistry
+};
 
 class DevChatServiceProviders extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/devchat.php', 'devchat');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/devchat.php', 'devchat');
 
         $this->app->singleton(DevChatAgent::class);
         $this->app->singleton(PromptRegistry::class);
@@ -20,7 +27,7 @@ class DevChatServiceProviders extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/devchat.php' => config_path('devchat.php'),
+                __DIR__ . '/../../config/devchat.php' => config_path('devchat.php'),
             ], 'config');
 
             $this->commands([DevChatCommand::class]);
