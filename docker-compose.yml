@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "9000:9000"
+    user: "1000:1000"
+    environment:
+      PHP_FPM_USER: "resoluto"
+      PHP_FPM_GROUP: "resoluto"

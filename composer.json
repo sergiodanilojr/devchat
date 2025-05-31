@@ -1,0 +1,52 @@
+{
+    "name": "resolutodigital/devchat",
+    "description": "A Laravel package for integrating with OpenAI, providing a chat interface and related functionalities.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "ResolutoDigital\\DevChat\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ResolutoDigital\\DevChat\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Resoluto Digital",
+            "role": "author",
+            "email": "contato@resoluto.digital",
+            "homepage": "https://resoluto.digital"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/console": "^v12.10.2",
+        "illuminate/support": "^v12.10.2",
+        "openai-php/laravel": "dev-main"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "10.x-dev",
+        "pestphp/pest": "4.x-dev"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ResolutoDigital\\DevChat\\Providers\\DevChatServiceProvider"
+            ]
+        }
+    }
+}
